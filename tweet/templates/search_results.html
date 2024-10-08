@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Search Results for "{{ query }}"</h2>
+
+  {% if tweets %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for tweet in tweets %}
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0">
+          {% if tweet.photo %}
+            <img src="{{ tweet.photo.url }}" class="card-img-top" alt="{{ tweet.user.username }}'s photo">
+          {% else %}
+            <img src="{% static 'path/to/default/image.jpg' %}" class="card-img-top" alt="Default Image">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ tweet.user.username }}</h5>
+            <p class="card-text">{{ tweet.text }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+</div>
+{% endblock %}
