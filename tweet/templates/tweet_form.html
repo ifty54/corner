@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Twipt
+Corner Feed
 {% endblock %}
 
 {% block content %}
@@ -13,9 +13,9 @@ Twipt
     <div class="card-body">
       <h2 class="card-title text-center">
         {% if form.instance.pk %}
-          Edit Twipt
+          Edit Thoughts
         {% else %}
-          Create Twipt
+          Create Thoughts
         {% endif %}
       </h2>
 
@@ -28,7 +28,7 @@ Twipt
       </form>
 
       <div class="text-center mt-3">
-        <a href="{% url 'tweet_list' %}" class="btn btn-secondary">Back to Twipt List</a>
+        <a href="{% url 'tweet_list' %}" class="btn btn-secondary">Back to Feed</a>
       </div>
     </div>
   </div>
